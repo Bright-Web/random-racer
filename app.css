@@ -1,0 +1,163 @@
+.container{
+    width: 100%;
+}
+
+/* Main app wrapper */
+.fullscreen{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+/* Top section of main page */
+.selectScreen-header{
+    height: 40vh;
+    background: url(/assets/brickwall-small.jpg);
+    background-size: contain;
+ }
+
+/* Bottom section of main page */
+.selectScreen-cars{
+    background-color: lightcoral;
+    height: 60vh;
+}
+
+.grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+.car {
+    background-color: grey;
+    border: 2px solid #353535;
+    border-top: 4px solid #353535;
+    border-bottom: 4px solid #353535;
+}
+
+/* .car-1{
+    background-color: blue;
+}
+
+.car-2{
+    background-color: yellowgreen;
+}
+
+.car-3{
+    background-color: purple;
+}
+
+.car-4{
+    background-color: red;
+}
+
+.car-5{
+    background-color: yellow;
+} */
+
+
+.raceScreen-header{
+    height: 40vh;
+    background: url(/assets/brickwall-small.jpg);
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.raceScreen-race{
+    background-color: green;
+    height: 60vh;
+}
+.race-background{
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+}
+
+.race-track{
+    width: 100%;
+    height: 60%;
+    background: url(/assets/track.jpg);
+    background-size: cover;
+}
+
+.race-area {
+    height: 100%;
+    width: 80%;
+    margin: 0 10%;
+    position: relative;
+}
+
+.lane{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.lane-1-car, .lane-2-car{
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    left: 0%;
+    align-self: flex-end;
+    margin-left: -170px;
+}
+
+.lane-2-car{
+    align-self: flex-start;
+}
+
+.startLine {
+    background: url(/assets/startline.png);
+    height: 100%;
+    position: absolute;
+    width: 100px;
+}
+.finishLine {
+    background: url(/assets/finishline.png);
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    right: -100px;
+}
+
+.button {
+    font-size: 30px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.blackBg{
+    background-color: black;
+ }
+
+ .winnerMessage{
+     position: absolute;
+     height: 100%;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+          
+ }
+ .winnerInner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
+    padding: 50px;
+ }
+
+ /* Used to hide sections */
+.hidden{
+    display: none;
+}
