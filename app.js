@@ -48,12 +48,12 @@ let carTwoCount = 0;
 let carOneMoveNumber = "";
 let carTwoMoveNumber = "";
 let raceButton = document.querySelector('.race-button');
-let carOneWins = "Car 1 Wins!!!";
-let carTwoWins = "Car 2 Wins!!!";
 let carSelector = document.querySelectorAll('.car');
 let winnerMessage = document.querySelector('.winnerMessage');
+let winnerText = document.querySelector('.winnerText');
 let selectScreen = document.querySelector('.selectScreen');
 let raceScreen = document.querySelector('.raceScreen');
+let resetButton = document.querySelector('.reset');
 
 let selectedOne = ""
 let selectedTwo = ""
@@ -86,10 +86,30 @@ raceButton.addEventListener('click', function () {
 });
 
 
+resetButton.addEventListener('click', function () {
+    reset()
+});
+
+
 
 
 
 // ---------- FUNCTIONS ---------- //
+
+
+function reset() {
+    selectScreen.classList.remove("hidden")
+    raceScreen.classList.add("hidden")
+    selectedOne = ""
+    selectedTwo = ""
+    carOneCount = 0;
+    carTwoCount = 0;
+    carOneMoveNumber = "";
+    carTwoMoveNumber = "";
+    carOne.style.left = carOneCount + "%";
+    carTwo.style.left = carOneCount + "%";
+    winnerMessage.classList.add('hidden');
+}
 
 function nextScreen() {
     selectScreen.classList.add("hidden")
@@ -98,10 +118,6 @@ function nextScreen() {
     carTwo.style.backgroundImage = "url(" + selectedTwo.raceImage + ")"
 
 }
-
-
-
-
 
 // Displays cars on selector screen
 function displayCars() {
@@ -116,14 +132,14 @@ function moveCarOne(){
     randomNumber();
     carOneCount += carOneMoveNumber;
     carOne.style.left = carOneCount + "%";
-    checkWinner(carOneCount, carOneWins);
+    checkWinner(carOneCount, selectedOne);
 };
 
 function moveCarTwo(){
     randomNumber();
     carTwoCount += carTwoMoveNumber;
     carTwo.style.left = carTwoCount + "%";
-    checkWinner(carTwoCount, carTwoWins);
+    checkWinner(carTwoCount, selectedTwo);
 };
 
 function randomNumber() {
@@ -133,9 +149,11 @@ function randomNumber() {
 
 
 // Checks to see if a car has reached the finish line (its car count is 100 or more)
-function checkWinner(carCount) {
+function checkWinner(carCount, selectedCar) {
+
     if (carCount > 99){
-        winnerMessage.classList.remove('hidden')
+        winnerMessage.classList.remove('hidden');
+        winnerText.innerHTML = selectedCar.name + " Wins !"
     }
 };
 
