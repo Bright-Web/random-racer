@@ -36,6 +36,9 @@ h1{
     border: 2px solid #353535;
     border-top: 4px solid #353535;
     border-bottom: 4px solid #353535;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* .car-1{
