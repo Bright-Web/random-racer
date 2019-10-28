@@ -3,36 +3,36 @@
 let cars = [
     {
         name: "Sports Car",
-        mainImage: "/assets/car-race.png",
-        specialImage: "/assets/car1.png",
+        mainImage: "/assets/select-images/car-select.png",
+        specialImage: "/assets/select-images/car-nitro.png",
         raceImage: "/assets/car-race.png",
         sound: ""
     },
     {
         name: "Pickup Truck",
-        mainImage: "/assets/truck-race.png",
-        specialImage: "/assets/car2.png",
+        mainImage: "/assets/select-images/truck-select.png",
+        specialImage: "/assets/select-images/truck-nitro.png",
         raceImage: "/assets/truck-race.png",
         sound: ""
     },
     {
         name: "Police Car",
-        mainImage: "/assets/police-race.png",
-        specialImage: "/assets/car1.png",
+        mainImage: "/assets/select-images/police-select.png",
+        specialImage: "/assets/select-images/police-nitro.png",
         raceImage: "/assets/police-race.png",
         sound: ""
     },
     {
         name: "Taxi",
-        mainImage: "/assets/taxi-race.png",
-        specialImage: "/assets/car2.png",
+        mainImage: "/assets/select-images/taxi-select.png",
+        specialImage: "/assets/select-images/taxi-nitro.png",
         raceImage: "/assets/taxi-race.png",
         sound: ""
     },
     {
         name: "Ambulance",
-        mainImage: "/assets/ambulance-race.png",
-        specialImage: "/assets/car1.png",
+        mainImage: "/assets/select-images/ambulance-select.png",
+        specialImage: "/assets/select-images/ambulance-nitro.png",
         raceImage: "/assets/ambulance-race.png",
         sound: ""
     }
@@ -77,7 +77,9 @@ carSelector.forEach((car, i) => {
         }else{
             return
         }
+        console.log(cars[i].name + " was clicked");
     })
+    
  });
 
 raceButton.addEventListener('click', function () {
@@ -160,11 +162,19 @@ function checkWinner(carCount, selectedCar) {
 carSelector.forEach((background, i) => {
     background.addEventListener('mouseover', () => {
         carSelector[i].classList.add('blackBg')
+        const car = carSelector[i];
+        let image = cars[i].specialImage
+        car.innerHTML = '<img src="'+ image + '">'
     })
+
  });
 
  carSelector.forEach((background, i) => {
     background.addEventListener('mouseout', () => {
         carSelector[i].classList.remove('blackBg')
+        const car = carSelector[i];
+        let image = cars[i].mainImage
+        car.innerHTML = '<img src="'+ image + '">'
     })
+
  });
