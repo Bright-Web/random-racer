@@ -101,7 +101,7 @@ align-items: center;
 }
 .grass{
     width: 100%;
-    background: url(/assets/grass_grass_1_tiled.jpg);
+    background: url(/assets/grass_tiled.jpg);
     background-size: contain;
 }
 
