@@ -3,38 +3,38 @@
 let cars = [
     {
         name: "Sports Car",
-        mainImage: "/assets/select-images/car-select.png",
+        mainImage: "/assets/select-images/car-dim.png",
         specialImage: "/assets/select-images/car-nitro.png",
         raceImage: "/assets/car-race.png",
-        sound: ""
+        sound: "/assets/sounds/car1.mp3"
     },
     {
         name: "Pickup Truck",
-        mainImage: "/assets/select-images/truck-select.png",
+        mainImage: "/assets/select-images/truck-dim.png",
         specialImage: "/assets/select-images/truck-nitro.png",
         raceImage: "/assets/truck-race.png",
-        sound: ""
+        sound: "/assets/sounds/truck1.mp3"
     },
     {
         name: "Police Car",
-        mainImage: "/assets/select-images/police-select.png",
+        mainImage: "/assets/select-images/police-dim.png",
         specialImage: "/assets/select-images/police-nitro.png",
         raceImage: "/assets/police-race.png",
-        sound: ""
+        sound: "/assets/sounds/police1.mp3"
     },
     {
         name: "Taxi",
-        mainImage: "/assets/select-images/taxi-select.png",
+        mainImage: "/assets/select-images/taxi-dim.png",
         specialImage: "/assets/select-images/taxi-nitro.png",
         raceImage: "/assets/taxi-race.png",
-        sound: ""
+        sound: "/assets/sounds/taxi2.mp3"
     },
     {
         name: "Ambulance",
-        mainImage: "/assets/select-images/ambulance-select.png",
+        mainImage: "/assets/select-images/ambulance-dim.png",
         specialImage: "/assets/select-images/ambulance-nitro.png",
         raceImage: "/assets/ambulance-race.png",
-        sound: ""
+        sound: "/assets/sounds/ambulance1.mp3"
     }
 ]
 
@@ -78,11 +78,13 @@ carSelector.forEach((car, i) => {
             selectedOne = cars[i];
             selectedText[i].classList.remove('hidden')
             carSelector[i].classList.add('steelBg')
+            playSound(i)
         }else if (selectedTwo === ""){
             selectedTwo = cars[i]
             selectedText[i].classList.remove('hidden')
             carSelector[i].classList.add('steelBg')
             startMessage.classList.remove('hidden')
+            playSound(i)
         }else{
             return
         }
@@ -106,12 +108,12 @@ cancelButton.addEventListener('click', function () {
     reset();
 });
 
-
-
-
-
 // ---------- FUNCTIONS ---------- //
 
+function playSound(i) {
+    let audio = new Audio(cars[i].sound)
+    audio.play()  
+}
 
 function reset() {
     startMessage.classList.add('hidden')
@@ -131,8 +133,7 @@ function reset() {
     });
     carSelector.forEach(el => {
         el.classList.remove('steelBg')
-    });
-    
+    });   
 }
 
 function nextScreen() {

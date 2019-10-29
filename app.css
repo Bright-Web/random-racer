@@ -13,11 +13,18 @@ h1{
     font-family: sans-serif;
 }
 
+.header{
+    max-height: 90%;
+}
+
 /* Top section of main page */
 .selectScreen-header{
     height: 40vh;
     background: url(/assets/brickwall-small.jpg);
     background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
 
  .selectedText {
@@ -41,14 +48,15 @@ h1{
     grid-template-columns: 20% 20% 20% 20% 20%;
 }
 .car {
-    background-color: grey;
     border: 2px solid #353535;
-    border-top: 4px solid #353535;
-    border-bottom: 4px solid #353535;
+    border-top: 4px solid #6a0404;
+    border-bottom: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(/assets/road2.png);
+    background-size: cover;
 }
 
 /* .car-1{
@@ -172,7 +180,8 @@ align-items: center;
 }
 
 .blackBg{
-    background-color: black;
+    background-image: url(/assets/redroad2.png);
+    background-size: cover;
  }
 .steelBg{
     background-color: rgb(42, 50, 61);
