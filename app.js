@@ -49,11 +49,16 @@ let carOneMoveNumber = "";
 let carTwoMoveNumber = "";
 let raceButton = document.querySelector('.race-button');
 let carSelector = document.querySelectorAll('.car');
+let carImage = document.querySelectorAll('.car-image');
+let selectedText = document.querySelectorAll('.selectedText');
 let winnerMessage = document.querySelector('.winnerMessage');
+let startMessage = document.querySelector('.startMessage');
 let winnerText = document.querySelector('.winnerText');
 let selectScreen = document.querySelector('.selectScreen');
 let raceScreen = document.querySelector('.raceScreen');
 let resetButton = document.querySelector('.reset');
+let startButton = document.querySelector('.start');
+let cancelButton = document.querySelector('.cancel');
 
 let selectedOne = ""
 let selectedTwo = ""
@@ -71,13 +76,16 @@ carSelector.forEach((car, i) => {
     car.addEventListener('click', () => {
         if (selectedOne === ""){
             selectedOne = cars[i];
+            selectedText[i].classList.remove('hidden')
+            carSelector[i].classList.add('steelBg')
         }else if (selectedTwo === ""){
             selectedTwo = cars[i]
-            nextScreen();
+            selectedText[i].classList.remove('hidden')
+            carSelector[i].classList.add('steelBg')
+            startMessage.classList.remove('hidden')
         }else{
             return
         }
-        console.log(cars[i].name + " was clicked");
     })
     
  });
@@ -89,7 +97,13 @@ raceButton.addEventListener('click', function () {
 
 
 resetButton.addEventListener('click', function () {
-    reset()
+    reset();
+});
+startButton.addEventListener('click', function () {
+    nextScreen();
+});
+cancelButton.addEventListener('click', function () {
+    reset();
 });
 
 
@@ -100,6 +114,7 @@ resetButton.addEventListener('click', function () {
 
 
 function reset() {
+    startMessage.classList.add('hidden')
     selectScreen.classList.remove("hidden")
     raceScreen.classList.add("hidden")
     selectedOne = ""
@@ -111,6 +126,13 @@ function reset() {
     carOne.style.left = carOneCount + "%";
     carTwo.style.left = carOneCount + "%";
     winnerMessage.classList.add('hidden');
+    selectedText.forEach(el => {
+        el.classList.add('hidden')
+    });
+    carSelector.forEach(el => {
+        el.classList.remove('steelBg')
+    });
+    
 }
 
 function nextScreen() {
@@ -124,9 +146,9 @@ function nextScreen() {
 // Displays cars on selector screen
 function displayCars() {
 for (let i = 0; i < carSelector.length; i++) {
-    const car = carSelector[i];
+    const car = carImage[i];
     let image = cars[i].mainImage
-    car.innerHTML = '<img src="'+ image + '">'
+    car.src = image
     }       
 }
 
@@ -162,9 +184,8 @@ function checkWinner(carCount, selectedCar) {
 carSelector.forEach((background, i) => {
     background.addEventListener('mouseover', () => {
         carSelector[i].classList.add('blackBg')
-        const car = carSelector[i];
-        let image = cars[i].specialImage
-        car.innerHTML = '<img src="'+ image + '">'
+        const car = carImage[i];
+        car.src = cars[i].specialImage
     })
 
  });
@@ -172,9 +193,8 @@ carSelector.forEach((background, i) => {
  carSelector.forEach((background, i) => {
     background.addEventListener('mouseout', () => {
         carSelector[i].classList.remove('blackBg')
-        const car = carSelector[i];
-        let image = cars[i].mainImage
-        car.innerHTML = '<img src="'+ image + '">'
+        const car = carImage[i];
+        car.src = cars[i].mainImage
     })
 
  });

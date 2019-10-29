@@ -20,6 +20,15 @@ h1{
     background-size: contain;
  }
 
+ .selectedText {
+    position: absolute;
+    bottom: 20px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    display: block;
+    color: #fff;
+}
+
 /* Bottom section of main page */
 .selectScreen-cars{
     background-color: lightcoral;
@@ -37,6 +46,7 @@ h1{
     border-top: 4px solid #353535;
     border-bottom: 4px solid #353535;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -141,8 +151,17 @@ align-items: center;
     font-family: sans-serif;
 }
 
+.cancel{
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
 .blackBg{
     background-color: black;
+ }
+.steelBg{
+    background-color: rgb(42, 50, 61);
  }
 
  .winnerMessage{
@@ -157,6 +176,25 @@ align-items: center;
           
  }
  .winnerInner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
+    padding: 50px;
+ }
+ .startMessage{
+     position: absolute;
+     height: 100%;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     z-index: 2;
+          
+ }
+ .startInner{
     display: flex;
     flex-direction: column;
     justify-content: center;
